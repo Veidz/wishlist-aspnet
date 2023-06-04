@@ -5,4 +5,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Wishlist.Domain\Wishlist.Domain.csproj" />
+    <ProjectReference Include="..\Wishlist.Persistence\Wishlist.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
