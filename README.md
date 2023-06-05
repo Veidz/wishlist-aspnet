@@ -18,4 +18,4 @@ Then, run the development server:
 dotnet run
 ```
 
-The server will be running at http://localhost:5127 where 5050 is the env port (launchSettings.json).
+The server will be running at http://localhost:5127 where 5127 is the env port (launchSettings.json).
