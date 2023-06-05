@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Wishlist.Application.Contracts;
-using Wishlist.Domain.Entities;
+using Wishlist.Application.DTOs.Product;
 
 namespace Wishlist.API.Controllers
 {
@@ -24,8 +24,8 @@ namespace Wishlist.API.Controllers
         {
             try
             {
-                IEnumerable<Product> products = await ProductService.GetAllAsync();
-                return StatusCode((int)HttpStatusCode.OK, products);
+                IEnumerable<ProductOutput> productsOutput = await ProductService.GetAllAsync();
+                return StatusCode((int)HttpStatusCode.OK, productsOutput);
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wishlist.Application.Contracts;
+using Wishlist.Application.Mapping;
 using Wishlist.Application.Services;
 using Wishlist.Domain.Entities;
 using Wishlist.Persistence;
@@ -36,6 +37,8 @@ namespace Wishlist.API
                 options.Connection = Configuration.GetSection("DatabaseSettings:Connection").Value;
                 options.Name = Configuration.GetSection("DatabaseSettings:Name").Value;
             });
+
+            services.AddAutoMapper(typeof(DomainToMappingProfile));
 
             services.AddScoped<IConnectionConfig, ConnectionConfig>();
             services.AddScoped<IMongoDbContext, MongoDbContext>();
