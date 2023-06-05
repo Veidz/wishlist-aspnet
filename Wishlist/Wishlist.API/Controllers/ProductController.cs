@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Wishlist.API.ViewModels;
 using Wishlist.Application.Contracts;
 using Wishlist.Application.DTOs.Product;
 
@@ -25,11 +26,11 @@ namespace Wishlist.API.Controllers
             try
             {
                 IEnumerable<ProductOutput> productsOutput = await ProductService.GetAllAsync();
-                return StatusCode((int)HttpStatusCode.OK, productsOutput);
+                return StatusCode((int)HttpStatusCode.OK, new ResultViewModel<IEnumerable<ProductOutput>>(productsOutput));
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, new ResultViewModel<string>(ex.Message));
             }
         }
     }
